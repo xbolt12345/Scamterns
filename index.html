@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scam Internship Email Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🛡️ Scam Internship Detector</h1>
+        <p>Protect yourself from fraudulent internship offers with our advanced email analysis tools</p>
+        <div class="header-actions">
+            <button id="quiz-btn" class="quiz-btn" onclick="loadQuizPage()">🎯 Take Quiz</button>
+            <button id="about-btn" class="about-btn" onclick="scrollToAbout()">📖 About</button>
+            <div class="auth-section">
+                <button id="auth-btn" class="auth-btn">🔐 Login</button>
+                <span id="user-status" class="user-status"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Options -->
+    <main class="main-options">
+        <div class="option-card" onclick="loadPage('analysis')">
+            <h2>📧 Email Analysis</h2>
+            <p>Analyze suspicious emails for scam indicators and get detailed risk assessment</p>
+            <ul>
+                <li>🔍 Advanced scam detection</li>
+                <li>⚠️ Risk level analysis</li>
+                <li>📝 Detailed reporting</li>
+            </ul>
+        </div>
+
+        <div class="option-card" onclick="loadPage('generator')">
+            <h2>🎲 Email Generator</h2>
+            <p>Generate temporary email addresses to forward suspicious emails for analysis</p>
+            <ul>
+                <li>📧 Temporary email creation</li>
+                <li>🔄 Email forwarding</li>
+                <li>📊 Instant analysis</li>
+            </ul>
+        </div>
+
+        <div class="option-card" id="inbox-option" style="display: none;" onclick="loadPage('inbox')">
+            <h2>📬 My Inbox</h2>
+            <p>View and manage all your previously analyzed emails</p>
+            <ul>
+                <li>📋 Email history</li>
+                <li>🔍 Search & filter</li>
+                <li>📊 Analysis records</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔐 Login / Register</h2>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="user-id">User ID:</label>
+                    <input type="text" id="user-id" required placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Password:</label>
+                    <input type="password" id="user-password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="login-btn">Login / Register</button>
+            </form>
+            <p class="auth-note">New users will be automatically registered. Your data is stored locally in your browser.</p>
+        </div>
+    </div>
+
+    <!-- Dynamic Content Container -->
+    <div id="content-container" class="content-container">
+        <!-- Content will be loaded here dynamically -->
+    </div>
+
+    <!-- Separate Quiz Page Container -->
+    <div id="quiz-container" class="quiz-container hidden">
+        <!-- Quiz content will be loaded here -->
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>🛡️ About Scam Internship Detector</h2>
+            <p class="about-intro">
+                Our mission is to protect students and job seekers from fraudulent internship offers and employment scams. 
+                We use advanced analysis techniques to identify suspicious patterns in emails and help you make informed decisions.
+            </p>
+            
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>🔍 Advanced Detection</h3>
+                    <p>Our sophisticated algorithms analyze multiple indicators including sender reputation, content patterns, and common scam tactics.</p>
+                </div>
+                
+                <div class="about-item">
+                    <h3>📊 Risk Assessment</h3>
+                    <p>Get detailed risk analysis with confidence scores and specific warnings about potential scam indicators.</p>
+                </div>
+                
+                <div class="about-item">
+                    <h3>🔒 Privacy First</h3>
+                    <p>Your data is stored locally in your browser. We don't collect or store your personal information on our servers.</p>
+                </div>
+                
+                <div class="about-item">
+                    <h3>🎓 Educational Focus</h3>
+                    <p>Learn about common scam tactics through our awareness quiz and protect yourself from future threats.</p>
+                </div>
+            </div>
+            
+            <div class="about-features">
+                <h3>✨ Key Features</h3>
+                <ul>
+                    <li><strong>Real-time Analysis:</strong> Instant email scanning for scam indicators</li>
+                    <li><strong>Risk Scoring:</strong> Detailed risk assessment with confidence levels</li>
+                    <li><strong>Temporary Emails:</strong> Safe forwarding addresses for suspicious messages</li>
+                    <li><strong>Learning Tools:</strong> Interactive quiz to improve scam awareness</li>
+                    <li><strong>Personal History:</strong> Track and review your analyzed emails</li>
+                </ul>
+            </div>
+            
+            <div class="about-disclaimer">
+                <p><strong>⚠️ Important Disclaimer:</strong> While our tool helps identify potential scams, always verify employment opportunities through official company channels. Never share personal information or make payments based on unsolicited emails.</p>
+            </div>
+            
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h3>📞 Get in Touch</h3>
+                <p>Have questions, feedback, or need help? We'd love to hear from you!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>📧 Email Support</h4>
+                        <p>support@scamdetector.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>💬 Report a Scam</h4>
+                        <p>report@scamdetector.com</p>
+                    </div>
+                </div>
+                
+                <div class="social-section">
+                    <h4>🌐 Follow Us</h4>
+                    <p>Stay updated with the latest scam alerts and safety tips</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/scamdetector" target="_blank" class="social-link instagram">
+                            <span class="social-icon">📷</span>
+                            <span class="social-text">@scamdetector</span>
+                        </a>
+                        
+                        <a href="https://www.twitter.com/scamdetector" target="_blank" class="social-link twitter">
+                            <span class="social-icon">🐦</span>
+                            <span class="social-text">@scamdetector</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>⚠️ This tool helps identify potential scams but always verify with official sources | © 2024 Scam Internship Detector</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
